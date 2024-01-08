@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.image {
+  max-width: 50px;
+  max-height: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
