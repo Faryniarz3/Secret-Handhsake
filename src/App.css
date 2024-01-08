@@ -38,10 +38,14 @@
 }
 
 .image {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 300px;
+  max-height: 300px;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.image-container {
+
 }
