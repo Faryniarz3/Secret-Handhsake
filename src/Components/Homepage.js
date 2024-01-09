@@ -11,11 +11,8 @@ function Homepage() {
                 Secret Handshake Generator
             </header>
             <div>
-                <p style={{ display: 'flex', justifyContent: 'center'}}>
-                Let's fucking go
-                </p>
+                
             <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', marginTop: '-100px' }}>
-                {/* <Videobox /> */}
                 <GenerateHandshake />
             </section>
             </div>

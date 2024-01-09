@@ -40,12 +40,88 @@
 .image {
   max-width: 300px;
   max-height: 300px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+  position: absolute;
 }
 
-.image-container {
 
+/* Picture Animations */
+
+@keyframes right-to-left {
+  0% {
+    transform: translateX(100%) translateY(25%)
+  }
+  100% {
+    transform: translateX(-200%) translateY(25%)
+  }
+}
+
+.right-to-left {
+  animation-name: right-to-left;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-200%) translateY(25%)
+  }
+  100% {
+    transform: translateX(100%) translateY(25%)
+  }
+}
+
+.left-to-right {
+  animation-name: left-to-right;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+
+
+@keyframes up-to-down {
+  0% {
+    transform: translateY(0%) translateX(-50%)
+  }
+  100% {
+    transform: translateY(100%) translateX(-50%)
+  }
+}
+
+.up-to-down {
+  animation-name: up-to-down;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes down-to-up {
+  0% {
+    transform: translateY(100%) translateX(-50%)
+  }
+  100% {
+    transform: translateY(0%) translateX(-50%)
+  }
+}
+
+.down-to-up {
+  animation-name: down-to-up;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.unique {
+  opacity: 0;
+  animation: unique 2s linear forwards;
+}
+
+@keyframes unique {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }

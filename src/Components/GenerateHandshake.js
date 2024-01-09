@@ -11,6 +11,7 @@ function GenerateHandshake() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const images = [palmDown, palmUp, rightHandOpen, fistBump]
   const animations = ['right-to-left', 'left-to-right', 'up-to-down', 'down-to-up', 'unique']
+  const animationToShow = currentImageIndex !== sequence.length - 1 ? animations[currentImageIndex % 4] : "unique"
 
   const displayImage = (index) => {
     setCurrentImageIndex(index)
@@ -31,7 +32,7 @@ function GenerateHandshake() {
 
   const handleGenerate = () => {
     if (steps >= 5) {
-      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 4) + 1)
+      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 4))
       setSequence(randomSequence)
       setCurrentImageIndex(0)
     } else {
@@ -47,9 +48,9 @@ function GenerateHandshake() {
   return (
     <div>
         <div className="videobox">
-            <Videobox imageToShow={images[sequence[currentImageIndex]]} animationToShow={animations[currentImageIndex]} number={sequence[currentImageIndex] + 1} />
+            <Videobox imageToShow={images[sequence[currentImageIndex]]} animationToShow={animationToShow} number={sequence[currentImageIndex] + 1} />
         </div>
-        <div style={{display: 'flex', justifyContent: 'center', marginTop: '-100px'}}>
+        <div style={{display: 'flex', justifyContent: 'center', marginTop: '30px'}}>
             <button style={{ fontSize: '18px'}} onClick={handleGenerate}>Generate Handshake</button>
             <input type ="number" placeholder= "# of steps" style= {{textAlign: 'center'}} value={steps} onChange={handleStepsChange} />
             <button style={{ fontSize: '18px'}}> Save </button>
