@@ -1,6 +1,6 @@
 import Homepage from "./Components/Homepage";
 import ProfilePage from "./Components/ProfilePage";
-import Signup from "./Components/Signup";
+import Signup from "./Components/UserPanel/Signup";
 
 const routes = [
     {

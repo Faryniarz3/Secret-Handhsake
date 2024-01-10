@@ -1,19 +1,17 @@
 import React from 'react'
-import Videobox from './Videobox'
-
 import GenerateHandshake from './GenerateHandshake'
 
 
-function Homepage() {
+function Homepage( { currentUser }) {
     return (
-        <div>
-            <header style={{ display: 'flex', justifyContent: 'center', marginTop: '25px'}}>
-                Secret Handshake Generator
+        <div style={{position:"relative"}}>
+            <header style={{ display: 'flex', justifyContent: 'center', marginTop: '5px'}}>
+                HNDSHK
             </header>
             <div>
                 
-            <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', marginTop: '-100px' }}>
-                <GenerateHandshake />
+            <section style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+                <GenerateHandshake currentUser={currentUser}/>
             </section>
             </div>
         </div>

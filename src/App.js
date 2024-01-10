@@ -17,7 +17,7 @@ const POST_HEADERS = {
 const URL = "/api"
 
 
-function App() {
+function App( {username }) {
 
   const [currentUser, setCurrentUser] = useState(null)
 
@@ -64,21 +64,26 @@ function App() {
     }
   }
 
-  // LOGOUT //
+  // LOGOUT //s
   function logout() {
     setCurrentUser(null)
     fetch(URL + '/logout', { method: "DELETE" })
   }
+  // onClick function- for "logout" button
 
   return (
     <Router>  
-      <div className="App">  
-        <Navbar />
+      <div className="App">
+        <div>
+        <Navbar currentUser={currentUser} username={username} logout={logout}/>
+        </div>
+        <div>
         <Routes>
-          <Route index element={<Homepage />} />
+          <Route index element={<Homepage currentUser={currentUser}/>} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
           <Route path="/SignupLogin" element={<SignupLoginPage attemptSignup={attemptSignup} attemptLogin={attemptLogin} />} />
         </Routes>
+        </div>
       </div>
     </Router>
   );

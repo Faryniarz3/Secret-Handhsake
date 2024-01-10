@@ -5,9 +5,9 @@ import Login from './UserPanel/Login'
 
 function SignupLogin({attemptSignup, attemptLogin}) {
     return(
-        <div>
-            <Signup attemptSignup={attemptSignup}/>
-            <Login attemptLogin={attemptLogin}/>
+        <div style={{display: 'flex', justifyContent: 'center', padding: '5px'}}>
+            <Signup attemptSignup={attemptSignup} style={{marginRight: '20px'}}/>
+            <Login attemptLogin={attemptLogin} style={{marginLeft: '100px', marginRight: '50px'}}/>
         </div>
     )
 }

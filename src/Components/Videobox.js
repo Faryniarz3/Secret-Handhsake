@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
-import HandshakeAlgo from './HandshakeAlgo'
+import React from 'react'
 
 
 
 function Videobox({ imageToShow, number, animationToShow }) {
 
-    //const [generatedNumber, setGeneratedNumber] = useState(1)
-
     return(
-        <div style={{ border: '4px solid #000', width: '600px', height: '400px', marginTop: "50px"}}> {imageToShow && <img className={'image ' + animationToShow} src={imageToShow} alt ={`Image ${number}`} />}
+        <div className="Videobox"> 
+        {imageToShow && <img className={'image ' + animationToShow} src={imageToShow} alt ={`Image ${number}`} />}
         </div>
     )
 }
