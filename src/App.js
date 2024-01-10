@@ -49,6 +49,18 @@ function App( {username }) {
     }
   }
 
+  async function saveHandshake(handshakeData) {
+    const res = await fetch(URL + '/handshakes', {
+      method: 'POST',
+      headers: POST_HEADERS,
+      body: JSON.stringify(handshakeData)
+    })
+    if (res.ok) {
+      const data = await res.json()
+      alert("Handshake Saved!")
+    }
+  }
+
   // LOGIN //
   async function attemptLogin(userInfo) {
     const res = await fetch(URL + '/login', {
@@ -79,7 +91,7 @@ function App( {username }) {
         </div>
         <div>
         <Routes>
-          <Route index element={<Homepage currentUser={currentUser}/>} />
+          <Route index element={<Homepage currentUser={currentUser} saveHandshake={saveHandshake}/>} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
           <Route path="/SignupLogin" element={<SignupLoginPage attemptSignup={attemptSignup} attemptLogin={attemptLogin} />} />
         </Routes>

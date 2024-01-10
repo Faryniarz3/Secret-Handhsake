@@ -5,15 +5,20 @@ import rightHandOpen from '../Handimages/rightHandOpen.png'
 import fistBump from '../Handimages/fistBump.png'
 import Videobox from './Videobox'
 
-function GenerateHandshake( { currentUser }) {
+function GenerateHandshake( { currentUser, saveHandshake }) {
   const [steps, setSteps] = useState()
   const [sequence, setSequence] = useState([])
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const images = [palmDown, palmUp, rightHandOpen, fistBump]
   const animations = ['right-to-left', 'left-to-right', 'up-to-down', 'down-to-up', 'unique']
   const animationToShow = currentImageIndex !== sequence.length - 1 ? animations[currentImageIndex % 4] : "unique"
-
   
+  useEffect(() => {
+    if (!currentUser) {
+        setSequence([])
+        setSteps('')
+    }
+  }, [currentUser])
 
   useEffect(() => {
     let intervalId
@@ -38,6 +43,10 @@ function GenerateHandshake( { currentUser }) {
     }
   }
 
+  const handleSave = () => {
+    saveHandshake({handshake_sequence:sequence})
+  }
+
   const handleStepsChange = (e) => {
     const value = parseInt(e.target.value)
     setSteps(value)
@@ -52,7 +61,7 @@ function GenerateHandshake( { currentUser }) {
             <button style={{ fontSize: '18px'}} onClick={handleGenerate}>Generate Handshake</button>
             <input type ="number" placeholder= "# of steps" style= {{textAlign: 'center'}} value={steps} onChange={handleStepsChange} />
             {currentUser && (
-            <button style={{ fontSize: '18px'}}> Save </button>
+            <button style={{ fontSize: '18px'}} onClick={handleSave}> Save </button>
             )}
         </div>
             <p style={{marginTop:"2px"}}>Generated Sequence: {sequence.join(', ')}</p>

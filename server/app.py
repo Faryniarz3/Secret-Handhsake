@@ -72,7 +72,7 @@ def create_handshake():
     try:
         data = request.json
         new_handshake = Handshake(
-            handshake_sequence=data.get("handshake_sequence"),
+            handshake_sequence=",".join([str(number) for number in data.get("handshake_sequence")]),
             name=data.get("name"),
             user=current_user()
             )

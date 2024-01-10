@@ -18,6 +18,8 @@ class User(db.Model, SerializerMixin):
 class Handshake(db.Model, SerializerMixin):
     __tablename__ = 'handshakes_table'
 
+    serialize_rules= ("-user",)
+
     id = db.Column(db.Integer, primary_key = True)
     handshake_sequence = db.Column(db.String, nullable = False)
     name = db.Column(db.String, nullable = True)
