@@ -112,9 +112,20 @@
   animation-iteration-count: 1;
 }
 
+.unique-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh
+}
+
 .unique {
   opacity: 0;
   animation: unique 2s linear forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh
 }
 
 @keyframes unique {
