@@ -8,7 +8,7 @@ function Navbar( {currentUser, logout }) {
           <ul style={{ listStyle: 'none', display: 'flex', justifyContent: 'center', padding: '0' }}>
             {currentUser ? (
                 <>
-            <li className="username" style={{ margin: '0 10px'}}> {currentUser.username} </li>
+            <li className="username" style={{ margin: '0 10px', position: 'fixed', top: '0', left: '0', fontSize: '20px'}}> {currentUser.username} </li>
             <li style={{ margin: '0 10px' }}>
               <Link to="/ProfilePage">Profile</Link>
             </li>

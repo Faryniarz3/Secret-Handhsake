@@ -42,6 +42,7 @@
   max-height: 300px;
   position: absolute;
   overflow: clip;
+  visibility: hidden;
 }
 
 .Videobox {
@@ -58,6 +59,7 @@
 
 @keyframes right-to-left {
   0% {
+    visibility: visible;
     transform: translateX(100%) translateY(25%)
   }
   100% {
@@ -74,6 +76,7 @@
 
 @keyframes left-to-right {
   0% {
+    visibility: visible;
     transform: translateX(-200%) translateY(25%)
   }
   100% {
@@ -92,6 +95,7 @@
 
 @keyframes up-to-down {
   0% {
+    visibility: visible;
     transform: translateY(-50%) translateX(-50%)
   }
   100% {
@@ -108,6 +112,7 @@
 
 @keyframes down-to-up {
   0% {
+    visibility: visible;
     transform: translateY(200%) translateX(-50%)
   }
   100% {
@@ -135,6 +140,7 @@
 
 @keyframes unique {
   0%, 100% {
+    visibility: visible;
     opacity: 0;
   }
   50% {

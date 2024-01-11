@@ -61,6 +61,11 @@ function App( {username }) {
     }
   }
 
+  async function savedHandshakes() {
+    const handshakeData = {}
+
+  }  
+
   // LOGIN //
   async function attemptLogin(userInfo) {
     const res = await fetch(URL + '/login', {
