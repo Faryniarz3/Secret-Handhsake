@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import palmDown from '../Handimages/palmDown.png'
-import palmUp from '../Handimages/palmUp.png'
-import rightHandOpen from '../Handimages/rightHandOpen.png'
-import fistBump from '../Handimages/fistBump.png'
+
+
+import openFistBump from '..Handimages/openFistBump.png'
+import palmFacingUp from '../Handimages/palmFacingUp.png'
+import rightHandPalmDown from '../Handimages/rightHandPalmDown.png'
+import spiderMan from '../Handimages/spiderMan.png'
+import standard from '../Handimages/standard.png'
+import twoFingers from '../Handimages/twoFingers.png'
+import threeFingers from '../Handimages/threeFingers.png'
+
+import peace from '../HandImagesUnique/peace.png'
+import pound from '../HandImagesUnique/pound.png'
+import spiderManDown from '../HandImagesUnique/spiderManDown.png'
 
 function HandshakeAlgo({number, index}) {
     const [showImage, setShowImage] = useState(false)
@@ -32,17 +41,40 @@ function HandshakeAlgo({number, index}) {
             imageToShow = null;
             break;
         case 1:
-            imageToShow = palmDown;
+            imageToShow = openFistBump;
             break;
         case 2:
-            imageToShow = palmUp;
+            imageToShow = palmFacingUp;
             break;
         case 3:
-            imageToShow = rightHandOpen;
+            imageToShow = rightHandPalmDown;
             break;
         case 4:
-            imageToShow = fistBump;
+            imageToShow = spiderMan;
             break;
+        case 5:
+            imageToShow = standard;
+            break;
+        case 6:
+            imageToShow = threeFingers;
+            break;
+        case 7:
+            imageToShow = twoFingers;
+            break;
+        
+        //Unique//
+
+        case 8:
+            imageToShow = peace;
+            break;
+        case 9:
+            imageToShow = pound;
+            break;
+        case 10:
+            imageToShow = spiderManDown;
+            break;
+
+
         
     }
 

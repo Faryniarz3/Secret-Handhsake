@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import palmDown from '../Handimages/palmDown.png'
-import palmUp from '../Handimages/palmUp.png'
-import rightHandOpen from '../Handimages/rightHandOpen.png'
-import fistBump from '../Handimages/fistBump.png'
 import Videobox from './Videobox'
+
+import openFistBump from '../Handimages/openFistBump.png'
+import palmFacingUp from '../Handimages/palmFacingUp.png'
+import rightHandPalmDown from '../Handimages/rightHandPalmDown.png'
+import spiderMan from '../Handimages/spiderMan.png'
+import standard from '../Handimages/standard.png'
+import twoFingers from '../Handimages/twoFingers.png'
+import threeFingers from '../Handimages/threeFingers.png'
+
+import peace from '../HandImagesUnique/peace.png'
+import pound from '../HandImagesUnique/pound.png'
+import spiderManDown from '../HandImagesUnique/spiderManDown.png'
 
 function GenerateHandshake( { currentUser, saveHandshake }) {
   const [steps, setSteps] = useState()
   const [sequence, setSequence] = useState([])
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const images = [palmDown, palmUp, rightHandOpen, fistBump]
+  const images = [openFistBump, palmFacingUp, rightHandPalmDown, spiderMan, standard, twoFingers, threeFingers, peace, pound, spiderManDown]
   const animations = ['right-to-left', 'left-to-right', 'up-to-down', 'down-to-up', 'unique']
   const animationToShow = currentImageIndex !== sequence.length - 1 ? animations[currentImageIndex % 4] : "unique"
   
@@ -27,7 +35,7 @@ function GenerateHandshake( { currentUser, saveHandshake }) {
         intervalId = setInterval(() => {
             const nextIndex = (currentImageIndex + 1) % sequence.length;
             setCurrentImageIndex(nextIndex)
-        }, 2000)
+        }, 2300)
     }
 
     return () => clearInterval(intervalId)
@@ -35,7 +43,7 @@ function GenerateHandshake( { currentUser, saveHandshake }) {
 
   const handleGenerate = () => {
     if (steps >= 5) {
-      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 4))
+      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 10))
       setSequence(randomSequence)
       setCurrentImageIndex(0)
     } else {
