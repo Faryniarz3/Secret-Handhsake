@@ -67,6 +67,14 @@ def check_session():
     else:
         return { "message": "No user is currently logged in!" }, 401
 
+@app.get(URL_PREFIX + '/handshakes/<int:user_id>')
+def get_handshakes_by_user_id(user_id):
+    if "user_id" not in session or session["user_id"] !=user_id:
+        return jsonify({"message": "Unauthorized"}), 401
+    user_handshakes = Handshake.query.filter_by(Handshake.user_id==user_id).all()
+    handshakes_list =[handshake.to_dict() for handshake in user_handshakes]
+    return jsonify(handshakes_list), 200
+
 @app.post(URL_PREFIX + '/handshakes')
 def create_handshake():
     try:
