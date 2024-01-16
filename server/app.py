@@ -71,7 +71,7 @@ def check_session():
 def get_handshakes_by_user_id(user_id):
     if "user_id" not in session or session["user_id"] !=user_id:
         return jsonify({"message": "Unauthorized"}), 401
-    user_handshakes = Handshake.query.filter_by(Handshake.user_id==user_id).all()
+    user_handshakes = Handshake.query.filter(Handshake.user_id==user_id).all()
     handshakes_list =[handshake.to_dict() for handshake in user_handshakes]
     return jsonify(handshakes_list), 200
 

@@ -97,7 +97,7 @@ function App( {username }) {
         <div>
         <Routes>
           <Route index element={<Homepage currentUser={currentUser} saveHandshake={saveHandshake}/>} />
-          <Route path="/ProfilePage" element={<ProfilePage />} />
+          <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser} />} />
           <Route path="/SignupLogin" element={<SignupLoginPage attemptSignup={attemptSignup} attemptLogin={attemptLogin} />} />
         </Routes>
         </div>

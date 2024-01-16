@@ -22,8 +22,15 @@ class Handshake(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key = True)
     handshake_sequence = db.Column(db.String, nullable = False)
-    name = db.Column(db.String, nullable = True)
+    name = db.Column(db.String, nullable = False)
 
     user = db.relationship('User', back_populates = 'handshakes')
 
     user_id = db.Column(db.Integer, db.ForeignKey('users_table.id'), nullable = False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'sequence': self.handshake_sequence
+        }
