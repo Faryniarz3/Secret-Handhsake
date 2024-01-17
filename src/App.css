@@ -51,7 +51,7 @@
   height: 400px;
   overflow: hidden; /* Ensures content doesn't overflow the box */
   position: relative; /* Establishes a containing block for absolute positioned elements */
-  margin-top: -40px;
+  margin-top: 5px;
 }
 
 
@@ -151,3 +151,32 @@
   }
 }
 
+.handshake-list {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px
+}
+
+.handshake-item {
+  border: 2px solid lightblue;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+.handshake-name {
+  font-weight: bold;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.handshake-name,
+.handshake-sequence {
+  grid-row: 1;
+}
+
+.instructions {
+
+}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Navbar( {currentUser, logout }) {
     return (
-        <nav style={{ backgroundColor: 'lightblue', padding: '4px', textAlign: 'center' }}>
+        <nav style={{ backgroundColor: 'lightblue', padding: '1px', textAlign: 'center', fontSize: '20px' }}>
           <ul style={{ listStyle: 'none', display: 'flex', justifyContent: 'center', padding: '0' }}>
             {currentUser ? (
                 <>

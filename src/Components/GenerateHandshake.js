@@ -19,7 +19,6 @@ function GenerateHandshake( { currentUser, saveHandshake }) {
   const [sequence, setSequence] = useState([])
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [handshakeName, setHandshakeName] = useState('')
   const images = [openFistBump, palmFacingUp, rightHandPalmDown, spiderMan, standard, twoFingers, threeFingers, peace, pound, spiderManDown]
   const animations = ['right-to-left', 'left-to-right', 'up-to-down', 'down-to-up', 'unique']
   const animationToShow = currentImageIndex !== sequence.length - 1 ? animations[currentImageIndex % 4] : "unique"
@@ -46,7 +45,9 @@ function GenerateHandshake( { currentUser, saveHandshake }) {
 
   const handleGenerate = () => {
     if (steps >= 5) {
-      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 10))
+      const randomSequence = Array.from({length: steps }, () => Math.floor(Math.random() * 7))
+      randomSequence[randomSequence.length - 1] = Math.floor(Math.random() * 3) + 7
+        console.log(randomSequence)
       setSequence(randomSequence)
       setCurrentImageIndex(0)
     } else {
@@ -90,7 +91,7 @@ function GenerateHandshake( { currentUser, saveHandshake }) {
             </>
             )}
         </div>
-            <p style={{marginTop:"2px"}}>Generated Sequence: {sequence.map((step, index) => (
+            <p style={{marginTop:"2px"}}>Handshake Steps: {sequence.map((step, index) => (
                 <img key={index} src={images[step]} alt={`Step ${index + 1}`} style={{maxWidth: '50px', maxHeight: '50px', margin: '0 5px'}} />
             ))}
             </p>
